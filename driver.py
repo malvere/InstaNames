@@ -24,6 +24,12 @@ class InstaBot():
         options.headless = True
         options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
         self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=options)
+        self.driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
+        "source":
+        "const newProto = navigator.__proto__;"
+        "delete newProto.webdriver;"
+        "navigator.__proto__ = newProto;"
+        })
     def prepareChecks(self):
         print('Connecting to Instagram')
         self.driver.get('https://www.instagram.com/accounts/emailsignup/')

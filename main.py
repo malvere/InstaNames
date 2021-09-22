@@ -21,11 +21,6 @@ except:
     picture = bot.driver.get_screenshot_as_file('scr.png')
     img = open('scr.png', 'rb')
     telebot.send_photo(chat_id=CHAT_ID, photo=img)
-    bot.driver.get('https://google.com/')
-    sleep(2)
-    picture = bot.driver.get_screenshot_as_file('scr.png')
-    img = open('scr.png', 'rb')
-    telebot.send_photo(chat_id=CHAT_ID, photo=img)
     pass
     bot.quit()
 smsg('Instagram Reached')
