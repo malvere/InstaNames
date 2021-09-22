@@ -20,7 +20,7 @@ try:
 except:
     picture = bot.driver.get_screenshot_as_file('scr.png')
     img = open('scr.png', 'rb')
-    telebot.send_photo(chat_id=CHAT_ID, photo=img)
+    telebot.send_document(chat_id=CHAT_ID, data=img)
     pass
     bot.quit()
 smsg('Instagram Reached')
