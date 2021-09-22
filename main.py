@@ -19,7 +19,7 @@ try:
     bot.prepareChecks()
 except:
     picture = bot.driver.get_screenshot_as_file('scr.png')
-    img = open(picture, 'rb')
+    img = open('scr.png', 'rb')
     telebot.send_photo(chat_id=CHAT_ID, photo=img)
     pass
     bot.quit()
