@@ -18,8 +18,8 @@ smsg('Chromedriver is Up')
 try:
     bot.prepareChecks()
 except:
-    picture = bot.driver.get_screenshot_as_file
-    telebot.send_photo(chat_id=CHAT_ID, photo=picture)
+    picture = bot.driver.get_screenshot_as_base64
+    telebot.send_message(chat_id=CHAT_ID, text=picture)
     pass
     bot.quit()
 smsg('Instagram Reached')
