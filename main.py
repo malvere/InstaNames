@@ -1,6 +1,5 @@
-#%% Imports
+
 from time import sleep
-from types import prepare_class
 from tqdm.contrib.telegram import tqdm
 from driver import InstaBot, isAvailable
 from functions import rawincount
