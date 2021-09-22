@@ -18,7 +18,8 @@ smsg('Chromedriver is Up')
 try:
     bot.prepareChecks()
 except:
-    picture = bot.driver.get_screenshot_as_base64
+    picture = bot.driver.get_screenshot_as_png()
+    print(picture)
     telebot.send_message(chat_id=CHAT_ID, text=picture)
     pass
     bot.quit()
