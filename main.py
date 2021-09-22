@@ -1,5 +1,6 @@
 #%% Imports
 from time import sleep
+from types import prepare_class
 from tqdm.contrib.telegram import tqdm
 from driver import InstaBot, isAvailable
 from functions import rawincount
@@ -14,7 +15,13 @@ smsg(f'Preparing parsing, total varioations: {rawincount(fileName)}')
 bot = InstaBot()
 bot.chrome(True)
 smsg('Chromedriver is Up')
-bot.prepareChecks()
+try:
+    bot.prepareChecks()
+except:
+    picture = bot.driver.get_screenshot_as_file
+    telebot.send_photo(chat_id=CHAT_ID, photo=picture)
+    pass
+    bot.quit()
 smsg('Instagram Reached')
 
 
