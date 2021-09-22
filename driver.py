@@ -28,7 +28,7 @@ class InstaBot():
     def prepareChecks(self):
         print('Connecting to Instagram')
         self.driver.get('https://www.instagram.com/accounts/emailsignup/')
-        sleep(1)
+        sleep(3)
         self.driver.find_element_by_name('emailOrPhone').send_keys('vain@glory.com')
         self.driver.find_element_by_name('password').send_keys('qwerty')   
         print('Done')
