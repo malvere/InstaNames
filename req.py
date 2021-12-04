@@ -1,6 +1,9 @@
 import requests
 from time import sleep
-def request(username): 
+
+
+# Request library
+def request(username):
     headers = {'User-Agent': 'Mozilla/5.0'}
     url = (f'https://www.instagram.com/{username}/channel/?__a=1')
     r = requests.get(url, headers=headers)
@@ -13,11 +16,11 @@ def request(username):
         return False
 
 
-fileName = 'generated2.txt'     
+fileName = 'generated2.txt'
 with open(fileName, 'r') as f:
     print(f'Text file reached! ({fileName})')
     for line in f:
         username = request(str(line[:-1]))
-        if username == True:
+        if username is True:
             sleep(1)
             pass

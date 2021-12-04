@@ -1,20 +1,23 @@
 from genBank import LETTERS as L, NUMBERS as N, SPECIALS as S
-from itertools import (takewhile,repeat, product)
+from itertools import (takewhile, repeat, product)
 
-#FUNCTIONS:
+# FUNCTIONS:
 
-#Generator Function
+
+# Generator Function
 def proc(*keys):
     for arg in product(*keys):
         yield ''.join(list(arg))
 
-#Count function (counts number of lines in 'filename' text file)
+
+# Count function (counts number of lines in 'filename' text file)
 def rawincount(filename):
     f = open(filename, 'rb')
     bufgen = takewhile(lambda x: x, (f.raw.read(1024*1024) for _ in repeat(None)))
     return sum(buf.count(b'\n') for buf in bufgen)
 
-#Generating arguments
+
+# Generating arguments
 def setArgs():
     userInput = input(
         'Please input key arguments: \n'
@@ -39,7 +42,8 @@ def setArgs():
             args.append(S)
     return args
 
-#User prompt for arguments generation
+
+# User prompt for arguments generation
 def generateProm(textFile):
     if input('Generate new palette? (y = yes)\n') == 'y':
         args = proc(*setArgs())
@@ -51,4 +55,3 @@ def generateProm(textFile):
     else:
         print('Using old palette...')
         pass
-
