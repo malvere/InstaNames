@@ -1,4 +1,10 @@
-
+'''
+This is a light version of main bot, it uses Requests in order
+to retrieve JSON from instagram servers, but while being fater,
+precision is on the other hand is lower.
+Banned/preserved accounts will be marked as "Available" and needed
+to be checked with selenium
+'''
 from time import sleep
 from tqdm.contrib.telegram import tqdm
 from functions import rawincount
@@ -23,6 +29,6 @@ with open(fileName, 'r') as f:
         sleep(1)
         if username == True:
             print(line, file=tempFile)
-            
+
+# Sends file to chat with found names
 telebot.send_document(CHAT_ID, data=tempFile)
-# smsg('!DONE!')

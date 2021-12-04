@@ -1,1 +1,0 @@
-This is a Cloud-based version of Instaparser, it cant generate new palletes but should be able to parse all of the variations in the cloud.
