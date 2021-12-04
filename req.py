@@ -1,10 +1,23 @@
 import requests
-headers = {'User-Agent': 'Mozilla/5.0'}
+from time import sleep
 def request(username): 
-    url = f'https://www.instagram.com/{username}/channel/?__a=1'
+    headers = {'User-Agent': 'Mozilla/5.0'}
+    url = (f'https://www.instagram.com/{username}/channel/?__a=1')
     r = requests.get(url, headers=headers)
-    print(r.text)
-    if r.text == '{}':
+    print(str(r.status_code) + " " + username)
+    if r.status_code == 404:
+        # Free
         return True
-    else:
-        False
+    if r.status_code == 200:
+        # Taken
+        return False
+
+
+fileName = 'generated2.txt'     
+with open(fileName, 'r') as f:
+    print(f'Text file reached! ({fileName})')
+    for line in f:
+        username = request(str(line[:-1]))
+        if username == True:
+            sleep(1)
+            pass
